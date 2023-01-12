@@ -1,0 +1,27 @@
+.home-container {
+  border: 1px solid red;
+  background-color: #f2f2f2;
+  padding: 60px;
+  font-size: 20px;
+  border-radius: 20px;
+  margin-top: 150px;/* MUDA O div */
+}
+
+.home-card-container {
+  border: 1px solid blue;
+  width: auto;
+}
+
+
+.home-views {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 15px;
+  font-size: 25px; /* MUDA TAMANHO DO ICONE */
+}
+
+.home-views h1 {
+    font-size: 22px; /* MUDA TAMANHO DO NRO DA QUANTIDADE DE VISUALIZAÇÕES */
+}
