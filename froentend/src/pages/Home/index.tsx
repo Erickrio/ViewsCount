@@ -20,11 +20,9 @@ const Home = () => {
         {/* <div className="home-img">
            <h2>Imagem</h2>
          </div> */}
-        <div>
          <button 
           onClick={handleClick1}
           className="btn btn-primary view-button">Veja Mais</button>
-        </div>
         <div className="home-views">
           <FiBarChart />  <h1>{counter}</h1> 
         </div>
