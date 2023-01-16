@@ -34,7 +34,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	
 	private static final String[] OPERATOR_OR_ADMIN = { "/views/**" };
 	
-	private static final String[] ADMIN = { "/users/**" };	
 	
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -52,8 +51,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers(PUBLIC).permitAll()
 		.antMatchers(HttpMethod.GET, OPERATOR_OR_ADMIN).permitAll()
-		.antMatchers(OPERATOR_OR_ADMIN).hasAnyRole("OPERATOR", "ADMIN")
-		//.antMatchers(ADMIN).hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST, OPERATOR_OR_ADMIN).permitAll()
 		.anyRequest().authenticated();
 
 		http.cors().configurationSource(corsConfigurationSource());

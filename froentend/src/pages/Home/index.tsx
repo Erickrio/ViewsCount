@@ -1,27 +1,26 @@
 import './styles.css';
 import { FiBarChart } from 'react-icons/fi';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View } from '../../types/view';
 import axios from 'axios';
 import { BASE_URL } from '../../util/request';
 
 
 const Home = () => {
-  
+  const [view, setView] = useState<View>();
   const [counter, setCounter] = useState(0)
   
   const handleClick1 = () => {
     setCounter(counter + 1)
   }
 
-  let view : View;
-
-  axios.get(BASE_URL + "/views/2")
-  .then(response => {
-    //o que quer executar quando essa resposta chegar?
-      console.log(response.data)
-  });
-
+  useEffect(() => {
+    axios.get(BASE_URL + '/views/1')
+    .then((response) => {
+      setView(response.data);
+    });
+  }, []);
+ 
   return (
     <div className="home-container">
       <h1>View de Página</h1>
@@ -33,7 +32,7 @@ const Home = () => {
           onClick={handleClick1}
           className="btn btn-primary view-button">Veja Mais</button>
         <div className="home-views">
-          <FiBarChart />  <h1>{counter}</h1> 
+          <FiBarChart />  <h1>{counter} - {view?.views}</h1> 
         </div>
       </div>
     </div>
