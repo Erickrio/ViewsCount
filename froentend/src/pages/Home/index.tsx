@@ -1,17 +1,26 @@
 import './styles.css';
 import { FiBarChart } from 'react-icons/fi';
 import React, { useState } from "react";
+import { View } from '../../types/view';
+import axios from 'axios';
+import { BASE_URL } from '../../util/request';
+
 
 const Home = () => {
   
   const [counter, setCounter] = useState(0)
   
   const handleClick1 = () => {
-    
     setCounter(counter + 1)
-
   }
-  
+
+  let view : View;
+
+  axios.get(BASE_URL + "/views/2")
+  .then(response => {
+    //o que quer executar quando essa resposta chegar?
+      console.log(response.data)
+  });
 
   return (
     <div className="home-container">
