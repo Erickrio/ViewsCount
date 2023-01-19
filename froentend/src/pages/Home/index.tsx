@@ -1,6 +1,6 @@
 import { FiBarChart } from 'react-icons/fi';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from '../../types/view';
 import { BASE_URL } from '../../util/request';
 
@@ -10,8 +10,17 @@ const Home = () => {
   const [view, setView] = useState<View>();
   const [counter, setCounter] = useState(0);
 
+
   const handleClick1 = () => {
-    setCounter(counter + 1);
+    axios
+      .post(BASE_URL+'/views', {
+      })
+      .then((response) => {
+       alert('Obrigado! Entraremos em contato com você em breve!');
+        console.log(response.data);
+      }).catch((error) =>{
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -19,14 +28,10 @@ const Home = () => {
       .get(BASE_URL + '/views/count-por-views/1')
       .then((response) => {
         setView(response.data);
-        console.log('qtd de resposta' + response.data);
-        console.log(BASE_URL)
-        console.log(response)
         console.log(response.status)
       })
       .catch((error) => {
         setView(undefined);
-        console.log('problema caiu aqui '+error);
       });
   },[]);
 
