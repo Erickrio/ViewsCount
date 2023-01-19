@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.net.URI;
 import com.erickmonteiro.views.dto.ViewDTO;
+import com.erickmonteiro.views.repository.ViewRepository;
 import com.erickmonteiro.views.services.ViewService;
 
 @RestController
@@ -30,6 +31,9 @@ public class ViewResource {
 	
 	@Autowired
 	private ViewService service;
+	
+	@Autowired
+	private ViewRepository repository;
 	
 	  @GetMapping  
 	    public ResponseEntity<List<ViewDTO>> findAll(){
@@ -50,5 +54,12 @@ public class ViewResource {
 		  ViewDTO dto = service.findById(id);
 			return ResponseEntity.ok().body(dto);
 		}
+	  
+	  @GetMapping(value = "/count-por-views/{id}")
+		public Long viewsCountToViews(@PathVariable Long id) {
+			return repository.countById(id);
+		}
+	  
 
+	
 }

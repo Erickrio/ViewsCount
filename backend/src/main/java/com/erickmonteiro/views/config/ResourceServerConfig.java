@@ -51,8 +51,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers(PUBLIC).permitAll()
 		.antMatchers(HttpMethod.GET, OPERATOR_OR_ADMIN).permitAll()
-		.antMatchers(HttpMethod.POST, OPERATOR_OR_ADMIN).permitAll()
-		.anyRequest().authenticated();
+		.antMatchers(HttpMethod.POST, OPERATOR_OR_ADMIN).permitAll();
+	   //.anyRequest().authenticated(); TODO- REMOVENDO REQUESIÇÃO PARA QUANDO ESTIVER AUTENTICADO
 
 		http.cors().configurationSource(corsConfigurationSource());
 	}

@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.erickmonteiro.views.dto.ViewDTO;
 import com.erickmonteiro.views.entities.View;
@@ -39,5 +40,6 @@ public class ViewService {
 		View entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new ViewDTO(entity);
 	}
+	
 
 }
