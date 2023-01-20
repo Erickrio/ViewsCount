@@ -6,6 +6,7 @@ import { BASE_URL } from '../../util/request';
 
 import './styles.css';
 
+
 const Home = () => {
   const [view, setView] = useState<View>();
   const [counter, setCounter] = useState(0);
@@ -16,7 +17,7 @@ const Home = () => {
       .post(BASE_URL+'/views', {
       })
       .then((response) => {
-       alert('Obrigado! Entraremos em contato com você em breve!');
+      //  alert('Obrigado! Entraremos em contato com você em breve!');
         console.log(response.data);
       }).catch((error) =>{
         console.log(error);
@@ -42,8 +43,9 @@ const Home = () => {
         {/* <div className="home-img">
            <h2>Imagem</h2>
          </div> */}
-        <button onClick={handleClick1} className="btn btn-primary view-button">
-          Veja Mais
+        <button onClick={handleClick1} className="btn btn-primary view-button" >
+        <a href="https://www.w3schools.com">veja mais</a>
+         
         </button>
         <div className="home-views">
           <FiBarChart /> <h1>{view}</h1>
