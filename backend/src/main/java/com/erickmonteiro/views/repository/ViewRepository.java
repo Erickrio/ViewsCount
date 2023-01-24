@@ -15,4 +15,7 @@ public interface ViewRepository extends JpaRepository<View,Long>{
 	
 	@Query("SELECT COUNT(views) FROM View ")
 	long countById(Long id);
+	
+	@Query("SELECT SUM(views) FROM View ")
+	Integer selectTotals();
 }

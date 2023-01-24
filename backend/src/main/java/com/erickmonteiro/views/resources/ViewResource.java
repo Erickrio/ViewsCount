@@ -55,9 +55,10 @@ public class ViewResource {
 			return ResponseEntity.ok().body(dto);
 		}
 	  
-	  @GetMapping(value = "/count-por-views/{id}")
-		public Long viewsCountToViews(@PathVariable Long id) {
-			return repository.countById(id);
+	  //@GetMapping(value = "/count-por-views/{id}")
+	  @GetMapping(value = "/count-por-views")
+		public Integer viewsCountToViews() {
+			return repository.selectTotals();
 		}
 	  
 

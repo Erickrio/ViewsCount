@@ -29,12 +29,12 @@ public class ViewService {
 	@Transactional
 	public ViewDTO insert(ViewDTO dto) {
 		View entity = new View();
-		int i = 0;
-		i++;
-	    entity.setViews(dto.getViews());
-	    if (dto.getViews() == null) {
+		    if (dto.getViews() == null) {
+	    	int i = 0;
+			i++;
 	    	entity.setViews(i);
 	    }
+	    //   entity.setViews(dto.getViews());
 		entity = repository.save(entity);
 		return new ViewDTO(entity);
 	}
