@@ -23,8 +23,10 @@ public class Post implements Serializable{
 	
 	private String title;
 	
-	@OneToMany(mappedBy = "post")
-	private List<View> views = new ArrayList<>();
+//	@OneToMany(mappedBy = "post")
+//	private List<View> views = new ArrayList<>();
+	
+	private int view;
 	
 	public Post() {
 		// TODO Auto-generated constructor stub
@@ -46,13 +48,21 @@ public class Post implements Serializable{
 		this.title = title;
 	}
 
-	public List<View> getViews() {
-		return views;
+	public int getView() {
+		return view;
 	}
 
-	public void setViews(List<View> views) {
-		this.views = views;
+	public void setView(int view) {
+		this.view = view;
 	}
+
+//	public List<View> getViews() {
+//		return views;
+//	}
+//
+//	public void setViews(List<View> views) {
+//		this.views = views;
+//	}
 	
 	
 
